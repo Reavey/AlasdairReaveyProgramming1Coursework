@@ -36,6 +36,7 @@ void cGame::initialise(SDL_Window* theSDLWindow, SDL_Renderer* theRenderer)
 	theAreaClicked = { 0, 0 };
 	// Store the textures for the cards
 	textureName = { "", "", "", "", "theBackground" };
+	//Make a private deck just to make pulling titles easy
 	for (int title = FARM; title <= SCHOOL; title++)
 	{
 		if (title == FARM)

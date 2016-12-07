@@ -513,6 +513,7 @@ void cGame::update(double deltaTime)
 		}
 	}
 	theGameState = theButtonMgr->getBtn("play_btn")->update(theGameState, PLAYING, theAreaClicked);
+	//Reset the game
 	if (reset == true)
 	{
 		//Empty all the resources
@@ -630,13 +631,16 @@ bool cGame::getInput(bool theLoop)
 				{
 					theAreaClicked = { event.motion.x, event.motion.y };
 					//If the card is released in the correct area and it is affordable
-					if (theCardPicker.getCardPicked() > -1 && theAreaClicked.x > 1050 && theAreaClicked.y < 320 && isShopBuilding == true && resStored[3] >= theBuildingShopDeck[0]->getBuildingCard(theCardPicker.getCardPicked())->getKnowCost())
+					if (theCardPicker.getCardPicked() > -1 && theAreaClicked.x > 1050 && theAreaClicked.y < 320 && 
+						isShopBuilding == true && 
+						resStored[3] >= theBuildingShopDeck[0]->getBuildingCard(theCardPicker.getCardPicked())->getKnowCost())
 					{
 						resStored[3] -= theBuildingShopDeck[0]->getBuildingCard(theCardPicker.getCardPicked())->getKnowCost();
 						theDeck[0]->addCard(theBuildingShopDeck[0]->getBuildingCard(theCardPicker.getCardPicked()));
 						if (theBuildingShopDeck[0]->getNumberInDeck() > 0)
 						{
-							theBuildingShopDeck[0]->replaceCard(theCardPicker.getCardPicked(), theBuildingShopDeck[0]->drawBuildingCard());
+							theBuildingShopDeck[0]->replaceCard(theCardPicker.getCardPicked(), 
+								theBuildingShopDeck[0]->drawBuildingCard());
 						}
 						if (theBuildingShopDeck[0]->getNumberInDeck() <= 0)
 						{

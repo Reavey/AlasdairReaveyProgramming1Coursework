@@ -5,7 +5,7 @@ cBuildingDeck::cBuildingDeck()
 	cBuildingDeck::bDeck.reserve(20); //Create a temporary array for the cards
 	cBuildingDeck::bDeck.clear();
 	cBuildingDeck::createBDeck();
-	//cPack::shufflePack();
+	cBuildingDeck::shufflePack();
 }
 
 void cBuildingDeck::createBDeck()

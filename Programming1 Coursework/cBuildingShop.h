@@ -37,13 +37,19 @@ public:
 	void showBuildingShopHand();
 
 	//Get the number of revealed cards
-	int getNumberOfCards();
+	int getNumberInHand();
+
+	//Get the number of cards remaining in deck
+	int getNumberInDeck();
 
 	//Shuffle shuffle
 	void shuffleBuildingShopDeck();
 
 	//Erase a card from the shop's "hand"
 	void replaceCard(int pos, cCard* aCard);
+
+	//Erase a card from the shop's "hand"
+	void eraseCard(int pos);
 };
 
 #endif

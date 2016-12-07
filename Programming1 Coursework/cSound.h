@@ -29,8 +29,8 @@ public:
 	~cSound();
 
 	bool load(LPCSTR filename);
-	void setSoundTYpe(soundType sndType);
-	soundType getSoundType();
+	//void setSoundTYpe(soundType sndType);
+	//soundType getSoundType();
 	void play(int loop);  // use -1 for indifinate loop 
 };
 #endif

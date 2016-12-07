@@ -14,7 +14,7 @@ cCard::cCard()
 	aBuilding.cCardname = "";
 }
 //constructor
-cCard::cCard(eBuildingTitle ccTitle, short ccLevel, short ccMatCost, short ccKnowCost, short ccResQuan, eResType ccResType)
+cCard::cCard(eBuildingTitle ccTitle, int ccLevel, int ccMatCost, int ccKnowCost, int ccResQuan, eResType ccResType)
 {
 	aBuilding.cTitle = ccTitle;
 	aBuilding.cLevel = ccLevel;
@@ -44,28 +44,28 @@ void cCard::showCard()
 		"At the beginning of your turn gain " << outValue[sCard.cResQuan] << " " << outType[sCard.cResType] << endl << endl;
 }
 //Return current card level, will be used to seperate all cards into individual 'decks' based on level in game setup
-short cCard::getLevel() 
+int cCard::getLevel() 
 {
 	BUILDINGCARD glCard = cCard::getCard();
 	return glCard.cLevel;
 }
 
 //Return a building's material cost so it can be played from hand
-short cCard::getMatCost()
+int cCard::getMatCost()
 {
 	BUILDINGCARD gmcCard = cCard::getCard();
 	return gmcCard.cMatCost;
 }
 
 //Return a building's knowledge cost so it can be bought from the shop
-short cCard::getKnowCost()
+int cCard::getKnowCost()
 {
 	BUILDINGCARD gkcCard = cCard::getCard();
 	return gkcCard.cKnowCost;
 }
 
 //Return quantity of resource produced by a building to add to available resources at start of each turn
-short cCard::getOutput()
+int cCard::getOutput()
 {
 	BUILDINGCARD goCard = cCard::getCard();
 	return goCard.cResQuan;

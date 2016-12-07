@@ -13,6 +13,7 @@ public:
 	void addCard(cCard* aCard); //Add a card to plaer deck from main pack
 	cCard* getCard(); //Draw a card from the deck
 	void shuffleDeck(); //Shuffle the player deck
+	int cardsInDeck(); //The number of cards remaining in the deck
 	cBuildingDeck buildingDeck;
 };
 #endif

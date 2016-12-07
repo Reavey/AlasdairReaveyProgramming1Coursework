@@ -13,6 +13,6 @@ public:
 	cCard* getPlayerCard(int pos); //return the a card from the players hand
 	void showPlayerHand();
 	int getNumberofCards(); //Return the number of cards in the vector
-
+	void removeCard(int pos); //Remove a specific card from hand
 };
 #endif

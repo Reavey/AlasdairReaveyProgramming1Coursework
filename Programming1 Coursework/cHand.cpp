@@ -30,7 +30,12 @@ cCard* cHand::getCardFromHand(int pos) // return a card from the hand
 	return aHand[pos];
 }
 
-void cHand::replaceCard(int pos, cCard* aCard)
+void cHand::replaceCard(int pos, cCard* aCard) // replace a specific card with another card
 {
 	aHand[pos] = aCard;
+}
+
+void cHand::removeCard(int pos) // delete a specific card from the hand
+{
+	cHand::aHand.erase(cHand::aHand.begin() + pos);
 }

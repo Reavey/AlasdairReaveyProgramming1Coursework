@@ -9,7 +9,7 @@ private:
 	BUILDINGCARD aBuilding;
 
 public:
-	cCard(eBuildingTitle ccTitle, short ccLevel, short ccMatCost, short ccKnowCost, short ccResQuan,eResType ccResType);
+	cCard(eBuildingTitle ccTitle, int ccLevel, int ccMatCost, int ccKnowCost, int ccResQuan,eResType ccResType);
 	cCard();
 
 	//Return details for current instance of a card
@@ -19,16 +19,16 @@ public:
 	void showCard(); 
 
 	//Return current card level, will be used to seperate all cards into individual 'decks' based on level in game setup
-	short getLevel(); 
+	int getLevel(); 
 
 	//Return a building's material cost so it can be played from hand
-	short getMatCost();
+	int getMatCost();
 
 	//Return a building's knowledge cost so it can be bought from the shop
-	short getKnowCost();
+	int getKnowCost();
 
 	//Return quantity of resource produced by a building to add to available resources at start of each turn
-	short getOutput();
+	int getOutput();
 
 	//Return type of resource produced by a building so the quantity returned goes to the right place
 	eResType getOutType();

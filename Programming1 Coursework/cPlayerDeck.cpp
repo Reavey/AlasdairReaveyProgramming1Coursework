@@ -17,22 +17,22 @@ void cPlayerDeck::createPDeck() //Construct the player's starting deck
 		{
 			if (title == FARM)
 			{
-				cPlayerDeck::pDeck.push_back(new cCard(static_cast<eBuildingTitle>(title), 0, 0, 0, 0, static_cast<eResType>(FOOD)));
+				cPlayerDeck::pDeck.push_back(new cCard(static_cast<eBuildingTitle>(title), 0, 0, 0, 1, static_cast<eResType>(FOOD)));
 			}
 			if (title == MINE)
 			{
-				cPlayerDeck::pDeck.push_back(new cCard(static_cast<eBuildingTitle>(title), 0, 0, 0, 0, static_cast<eResType>(MATERIALS)));
+				cPlayerDeck::pDeck.push_back(new cCard(static_cast<eBuildingTitle>(title), 0, 0, 0, 1, static_cast<eResType>(MATERIALS)));
 			}
 			//Markets and schools get two copies
 			if (duplicate >= 1)
 			{
 				if (title == MARKET)
 				{
-					cPlayerDeck::pDeck.push_back(new cCard(static_cast<eBuildingTitle>(title), 0, 1, 0, 0, static_cast<eResType>(GOLD)));
+					cPlayerDeck::pDeck.push_back(new cCard(static_cast<eBuildingTitle>(title), 0, 3, 3, 1, static_cast<eResType>(GOLD)));
 				}
 				if (title == SCHOOL)
 				{
-					cPlayerDeck::pDeck.push_back(new cCard(static_cast<eBuildingTitle>(title), 0, 1, 0, 0, static_cast<eResType>(KNOWLEDGE)));
+					cPlayerDeck::pDeck.push_back(new cCard(static_cast<eBuildingTitle>(title), 0, 3, 3, 1, static_cast<eResType>(KNOWLEDGE)));
 				}
 			}
 		}
@@ -58,4 +58,9 @@ cCard* cPlayerDeck::getCard() //Draw the top card of the player deck
 void cPlayerDeck::shuffleDeck() //Shuffle the player deck
 {
 	random_shuffle(cPlayerDeck::pDeck.begin(), cPlayerDeck::pDeck.end());
+}
+
+int cPlayerDeck::cardsInDeck() //Number of cards remaining in the deck
+{
+	return cPlayerDeck::pDeck.size();
 }

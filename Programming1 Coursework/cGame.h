@@ -53,14 +53,22 @@ private:
 	cSprite cardSprite;
 
 	//Game related variables
-	int food;
-	int foodPerTurn;
-	int knowkedge;
-	int knowledgePerTurn;
-	int gold;
-	int goldPerTurn;
-	int materials;
-	int materialsPerTurn;
+	vector<int> resStored; //Order in the vector is Food, Gold, Materials, Knowledge
+	vector<int> resPerTurn; //Order in the vector is Food, Gold, Materials, Knowledge
+	bool isShopBuilding; //Indiciate if clicked card is from the building shop
+	bool isPlayerCard; //Indicate if clicked card is from player hand
+	//A series of booleans to control the player turn
+	bool gainResources;
+	bool playBuildings;
+	string resources;
+	int buildingCounter;
+	bool buyFromShop;
+	bool drawCards;
+	int turn;
+	string turnStr;
+	int score;
+	string scoreStr;
+	bool reset;
 	vector<LPCSTR> textureName;
 	vector<LPCSTR> textName;
 	vector<LPCSTR> texturesToUse;
@@ -82,12 +90,15 @@ private:
 	vector<LPCSTR> btnTexturesToUse;
 	vector<SDL_Point> btnPos;
 	vector <cButton> theButtons;
+
+	//Icons for use in the game
+	vector<LPCSTR> iconName;
+	vector<LPCSTR> iconToUse;
+
 	//Game objects
-	cPlayer thePlayer;
-	//cBuildingDeck buildingDeck;
-	std::vector<cCard*> titleDeck; //A Special deck to pull titles from for the textures
-	cPlayerDeck theDeck;
-	cBuildingShop theBuildingShopDeck;
+	vector<cPlayer*> thePlayer;
+	vector <cPlayerDeck*> theDeck;
+	vector <cBuildingShop*> theBuildingShopDeck;
 	cCard* theCard = NULL;
 	cCardPicker theCardPicker;
 	cSprite dragCard;

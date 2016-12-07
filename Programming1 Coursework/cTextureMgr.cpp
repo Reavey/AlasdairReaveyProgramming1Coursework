@@ -84,9 +84,9 @@ void cTextureMgr::deleteTexture(LPCSTR txtName)
 - return the texture.
 =================
 */
-cTexture* cTextureMgr::getTexture(LPCSTR textureName)        // return the texture.
+cTexture* cTextureMgr::getTexture(const char* const textureName)        // return the texture.
 {
-	map<LPCSTR, cTexture*>::iterator txt = textureList.find(textureName);
+	/*map<LPCSTR, cTexture*>::iterator txt = textureList.find(textureName);
 	if (txt != textureList.end())
 	{
 		return txt->second;
@@ -94,7 +94,13 @@ cTexture* cTextureMgr::getTexture(LPCSTR textureName)        // return the textu
 	else
 	{
 		return NULL;
+	}*/
+	for (auto txt : textureList)
+	{
+		if ((std::string)txt.first == (std::string)textureName)
+			return txt.second;
 	}
+	return NULL;
 }
 /*
 =================

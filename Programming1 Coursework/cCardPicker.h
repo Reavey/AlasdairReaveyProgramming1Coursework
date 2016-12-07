@@ -19,11 +19,7 @@ private:
 
 public:
 	cCardPicker();
-
-	void render(SDL_Window* theSDLWND, SDL_Renderer* theRenderer, cTextureMgr* theTxtMgr, vector<LPCSTR> theTxt, FPoint scale);
-	void update(SDL_Point theAreaClicked,int lowXBoundary, int cardWidth);
-	void setBuildingListStartXY(SDL_Point startPosXY);
-	SDL_Point getBuildingListStartXY();
+	void update(SDL_Point theAreaClicked, int lowXBoundary, int cardWidth, int cardHeight, int cardsInHand);
 	void setCardPicked(int aCardPicked);
 	int getCardPicked();
 };

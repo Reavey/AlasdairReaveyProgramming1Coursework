@@ -37,8 +37,8 @@ using namespace std;
 
 //Define the string to appear in the top left of the window
 #define WINDOW_TITLE "Programming 1 Coursework - Alasdair Reavey S1518179"
-#define WINDOW_WIDTH 1024
-#define WINDOW_HEIGHT 768
+#define WINDOW_WIDTH 1280
+#define WINDOW_HEIGHT 720
 
 //Properties of a building card
 enum eBuildingTitle {FARM,MARKET,MINE,SCHOOL};
@@ -51,21 +51,21 @@ enum eResQuan {RONE, RTWO};
 enum textType { SOLID, BLENDED, SHADED };
 enum soundType { SFX, MUSIC };
 enum gameState { MENU, INSTRUCTIONS,  PLAYING, END, QUIT };
-enum btnTypes { EXIT, INSTRUCT, LOAD, PLAY, SAVE, SETTINGS };
+enum btnTypes { EXIT, INSTRUCT, LOAD, PLAY, SAVE, SETTINGS, SKIPOVER };
 
 const string strTitle[4] = { "Farm", "Market", "Mine", "School" };
 const int intLevel[3] = { 0, 1, 2};
 const string outType[4] = { "Food", "Gold", "Knowledge", "Materials" };
 const int outValue[1] = { 1 };
 const int intMatCost[2] = { 0, 3};
-const int intKnowCost[1] = { 0 };
+const int intKnowCost[2] = { 0, 3 };
 
 struct BUILDINGCARD {
 	eBuildingTitle cTitle; //The card's name
-	short cLevel; //The card's level
-	short cMatCost; //The cost to buy a building from the shop
-	short cKnowCost; //The cost to play a card from hand
-	short cResQuan; //The quantity of a resource produced
+	int cLevel; //The card's level
+	int cMatCost; //The cost to buy a building from the shop
+	int cKnowCost; //The cost to play a card from hand
+	int cResQuan; //The quantity of a resource produced
 	eResType cResType; //The type of resource produced
 	string cFilename;
 	string cCardname;

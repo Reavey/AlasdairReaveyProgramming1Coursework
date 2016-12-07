@@ -23,21 +23,21 @@ void cBuildingShop::createBuildingShopDeck() //cPlayerDeck* theDeck
 			{
 				if (title == FARM)
 				{
-					cBuildingShop::bShopDeck.push_back(new cCard(static_cast<eBuildingTitle>(title), 0, 0, 0, 0, static_cast<eResType>(FOOD)));
+					cBuildingShop::bShopDeck.push_back(new cCard(static_cast<eBuildingTitle>(title), 0, 0, 0, 1, static_cast<eResType>(FOOD)));
 				}
 				if (title == MINE)
 				{
-					cBuildingShop::bShopDeck.push_back(new cCard(static_cast<eBuildingTitle>(title), 0, 0, 0, 0, static_cast<eResType>(MATERIALS)));
+					cBuildingShop::bShopDeck.push_back(new cCard(static_cast<eBuildingTitle>(title), 0, 0, 0, 1, static_cast<eResType>(MATERIALS)));
 				}
 			}
 			//Markets and schools get three copies			
 			if (title == MARKET)
 			{
-				cBuildingShop::bShopDeck.push_back(new cCard(static_cast<eBuildingTitle>(title), 0, 1, 0, 0, static_cast<eResType>(GOLD)));
+				cBuildingShop::bShopDeck.push_back(new cCard(static_cast<eBuildingTitle>(title), 0, 3, 3, 1, static_cast<eResType>(GOLD)));
 			}
 			if (title == SCHOOL)
 			{
-				cBuildingShop::bShopDeck.push_back(new cCard(static_cast<eBuildingTitle>(title), 0, 1, 0, 0, static_cast<eResType>(KNOWLEDGE)));
+				cBuildingShop::bShopDeck.push_back(new cCard(static_cast<eBuildingTitle>(title), 0, 3, 3, 1, static_cast<eResType>(KNOWLEDGE)));
 			}
 			
 		}
@@ -81,9 +81,15 @@ void cBuildingShop::showBuildingShopHand()
 }
 
 //Get number of currently revealed cards
-int cBuildingShop::getNumberOfCards()
+int cBuildingShop::getNumberInHand()
 {
 	return cBuildingShop::buildingShopHand.getNumberofCards();
+}
+
+//Get number of cards remaining in the deck
+int cBuildingShop::getNumberInDeck()
+{
+	return cBuildingShop::bShopDeck.size();
 }
 
 //Shuffle shuffle
@@ -92,8 +98,14 @@ void cBuildingShop::shuffleBuildingShopDeck()
 	random_shuffle(cBuildingShop::bShopDeck.begin(), cBuildingShop::bShopDeck.end());
 }
 
-//Erase a card from the shop's "hand"
+//Replace a card from the shop's "hand"
 void cBuildingShop::replaceCard(int pos, cCard* aCard)
 {
 	buildingShopHand.replaceCard(pos, aCard);
+}
+
+//Erase a card from the shop's "hand"
+void cBuildingShop::eraseCard(int pos)
+{
+	buildingShopHand.removeCard(pos);
 }

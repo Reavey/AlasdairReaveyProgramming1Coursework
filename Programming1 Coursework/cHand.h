@@ -14,5 +14,6 @@ public:
 	int cHand::getNumberofCards(); // return the number of cards in the vector
 	cCard* getCardFromHand(int pos); // return a card from the hand
 	void replaceCard(int pos, cCard* aCard); // remove a specific card from hand
+	void removeCard(int pos); // Delete a specific card from hand
 };
 #endif

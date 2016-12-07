@@ -28,3 +28,9 @@ int cPlayer::getNumberofCards()
 {
 	return cPlayer::playerHand.getNumberofCards();
 }
+
+//Remove a specific card from the hand
+void cPlayer::removeCard(int pos)
+{
+	cPlayer::playerHand.removeCard(pos);
+}

@@ -443,6 +443,7 @@ void cGame::update(double deltaTime)
 			}
 			int costCounter = 0;
 			bool affordable = false;
+			//Check to make sure something in hand can actually be played, if not moce to next step
 			for (int i = 0; i < thePlayer[0]->getNumberofCards(); i++)
 			{
 				if (resStored[2] < thePlayer[0]->getPlayerCard(i)->getMatCost())
@@ -473,6 +474,7 @@ void cGame::update(double deltaTime)
 		{
 			int costCounter = 0;
 			bool affordable = false;
+			//Check to make sure something in the shop can be bought, if not move to next step
 			for (int i = 0; i < theBuildingShopDeck[0]->getNumberInHand(); i++)
 			{
 				if (resStored[3] < theBuildingShopDeck[0]->getBuildingCard(i)->getKnowCost())
@@ -493,6 +495,7 @@ void cGame::update(double deltaTime)
 		}
 		if (drawCards == true)
 		{
+			//The player should always have as close to 5 cards in hand as possible
 			for (int cards = thePlayer[0]->getNumberofCards(); cards < 5; cards++)
 			{
 				if (theDeck[0]->cardsInDeck() > 0)
